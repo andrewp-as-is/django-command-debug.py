@@ -2,22 +2,19 @@ import os
 import sys
 import traceback
 
-
 from django.core.management.base import BaseCommand
 
-from django_command_debug.models import Config, Message
+from ..models import Command, Message
 
 
-class DebugMixin:
+class DebugCommandMixin:
     def debug(self,msg):
-        app = None
-        if 'management.commands.' in type(self).__module__:
-            app = type(self).__module__.split('.management.commands')[0].split('.')[-1]
-        name = type(self).__module__.split('.')[-1]
+        module_name = type(self).__module__
+        app, name = module_name.split('.')[-4], module_name.split('.')[-1]
         defaults = dict(app=app)
-        config, created = Config.objects.get_or_create(defaults,name=name)
-        if config.is_enabled:
-            Message(name=name,app=app,msg=msg).save()
+        command, created = Command.objects.get_or_create(defaults,name=name)
+        if command.is_enabled:
+            Message(name=name,app=app,msg=msg,pid=os.getpid()).save()
 
-class DebugCommand(DebugMixin,BaseCommand):
+class DebugCommand(DebugCommandMixin,BaseCommand):
     pass

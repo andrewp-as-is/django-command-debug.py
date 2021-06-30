@@ -1,2 +1,2 @@
-from .config import Config
+from .command import Command
 from .message import Message
