@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='django-command-debug',
-    version='2021.6.13',
+    version='2021.8.20',
     packages=[
         'django_command_debug',
         'django_command_debug.admin',

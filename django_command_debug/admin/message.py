@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.timesince import timesince
 
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ['id','name','app','msg','pid','created_at','created_at_timesince']
+    list_display = ['id','app','name','pid','msg','created_at','created_at_timesince']
     list_filter = ('app','name',)
     list_search = ('msg',)
 

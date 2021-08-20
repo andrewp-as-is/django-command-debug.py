@@ -1,1 +1,1 @@
-Django management commands debug
+Django management command debug

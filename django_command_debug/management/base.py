@@ -7,7 +7,7 @@ from django.core.management.base import BaseCommand
 from ..models import Command, Message
 
 
-class DebugCommandMixin:
+class DebugMixin:
     def debug(self,msg):
         module_name = type(self).__module__
         app, name = module_name.split('.')[-4], module_name.split('.')[-1]
@@ -16,5 +16,5 @@ class DebugCommandMixin:
         if command.is_enabled:
             Message(name=name,app=app,msg=msg,pid=os.getpid()).save()
 
-class DebugCommand(DebugCommandMixin,BaseCommand):
+class DebugCommand(DebugMixin,BaseCommand):
     pass

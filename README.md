@@ -1,4 +1,4 @@
-[![](https://img.shields.io/badge/released-2021.6.13-green.svg?longCache=True)](https://pypi.org/project/django-command-debug/)
+[![](https://img.shields.io/badge/released-2021.8.20-green.svg?longCache=True)](https://pypi.org/project/django-command-debug/)
 [![](https://img.shields.io/badge/license-Unlicense-blue.svg?longCache=True)](https://unlicense.org/)
 
 ### Installation
